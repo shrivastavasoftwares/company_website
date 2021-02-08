@@ -1,0 +1,137 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div class="main-wrapper">
+        <div class="container-fluid" style="background-color: lightblue; padding: 3%">
+    <h1 class="text-center" style="font-size: 46px; color: #000000">BLOG SECTION</h1>
+    </div>
+    <div>
+
+    </div>
+
+        <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+        {% for i in data %}
+<div class="modal fade" id="{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{ i.Title }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%" src="{% static 'images/django-framework.jpg' %}" alt="image">
+<h1>{{ i.Title }}</h1>
+
+          <p>{{ i.description }}</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+        <!-- Modal -->
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container  animate__animated animate__backInLeft animate__delay-2s" >
+
+                {% for i  in data %}
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%" src="{% static 'images/django-framework.jpg' %}" alt="image">
+
+					    <div class="media-body">
+						    <h3 class="title "><a href="blog-post.html">{{ i.Title }}</a></h3>
+						    <div class="intro">{{ i.description }}</div>
+                            <button type="button" id ="1"class="btn btn-primary" style="margin-top: 3%" data-toggle="modal" data-target="#{{ i.id }}">
+  Read more
+</button>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+
+
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		    </div>
+	    </section>
+
+
+
+    </div><!--//main-wrapper-->
+
+
+
+
+    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->
+
+{% endblock %}

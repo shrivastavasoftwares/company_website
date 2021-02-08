@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+ <div class="main-wrapper">
+        <div class="container-fluid" style="background-color: lightblue; padding: 3%">
+    <h1 class="text-center" style="font-size: 46px; color: #000000">PROJECT SECTION</h1>
+    </div>
+    </div>
+{% for i in data %}
+
+
+    <div class="project pt-5">
+
+            					    <img class=" img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%; margin: auto" src="{% static 'images/django-framework.jpg' %}" alt="image">
+    <h1 class="text-center pt-3">{{ i.Title }}</h1>
+    <p class="text-center pt-3" style="padding-left: 20%;padding-right: 20%">{{ i.description }}</p>
+
+
+
+
+    </div>
+
+{% endfor %}
+
+
+
+
+
+
+
+
+        {% endblock %}
+
