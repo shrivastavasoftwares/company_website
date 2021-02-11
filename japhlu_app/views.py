@@ -4,7 +4,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def base(request):
-    return render(request,'base.html')
+    MEDIA_URL = '/media/'
+
+    data=basic_info.objects.get(id=1)
+    return render(request,'base.html',{"data":data,"MEDIA_URL":MEDIA_URL})
 
 def about(request):
     return render(request,'about.html')
@@ -22,8 +25,9 @@ def service_fun(request,id):
 
 def blog_fun(request):
     data=blog.objects.all()
+    MEDIA_URL = '/media/'
 
-    return render(request,'blog.html',{'data':data})
+    return render(request,'blog.html',{'data':data,"MEDIA_URL":MEDIA_URL})
 
 def projects_fun(request):
     data=projects.objects.all()

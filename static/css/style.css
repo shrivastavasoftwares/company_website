@@ -1874,12 +1874,15 @@ input[type="radio"] .styled:checked+label::after {
 .traveling-box .read-more a {
      font-size: 17px;
      padding: 15px 30px;
-     background-color: lightblue;
+     background-color: #ffc33c;
      display: inline-block;
      line-height: 20px;
      border-radius: 30px;
      text-align: center;
      margin-top: 30px;
+}
+.right.carousel-control, .left.carousel-control {
+    display: none;
 }
 .traveling-box .read-more a:hover {
      background: #15cfe5;
@@ -1974,8 +1977,6 @@ input[type="radio"] .styled:checked+label::after {
 .item h3 {
      font-size: 20px;
      line-height: 29px;
-     padding: 10px 10px 10px 10px;
-     color: #282727;
 }
 .item p {
      padding: 0px 10px 10px 10px;
@@ -1993,8 +1994,6 @@ input[type="radio"] .styled:checked+label::after {
      margin: 0px 5px;
 }
 .amazing {
-    background-color: #003eff;
-     padding: 90px 0px;
      background-size: 100% 100%;
      background-repeat: no-repeat;
      background-position: center;
@@ -2006,12 +2005,12 @@ input[type="radio"] .styled:checked+label::after {
      padding: 0px 0px 20px 0px;
      font-size: 45px;
      font-weight: bold;
-     color: #fff;
+     color: #000000;
      line-height: 50px;
      text-transform: uppercase;
 }
 .amazing .amazing-box span {
-     color: #fff;
+     color: #000000;
      font-size: 17px;
      line-height: 32px;
      display: inline-block;
@@ -2019,9 +2018,9 @@ input[type="radio"] .styled:checked+label::after {
 }
 .amazing .amazing-box a {
      font-size: 17px;
+    background-color: #ffc33c;
      padding: 15px 50px;
-     background-color: lightblue;
-     color: #fff;
+
      display: inline-block;
      line-height: 20px;
      border-radius: 30px;
@@ -2029,7 +2028,7 @@ input[type="radio"] .styled:checked+label::after {
      margin: 0 10px;
 }
 .amazing .amazing-box a:hover {
-     background: #15cfe5;
+     background: #000000;
 }
 .blog {
      background-color: #fff;
@@ -2048,8 +2047,8 @@ input[type="radio"] .styled:checked+label::after {
      display: inline-block;
      position: relative;
 }
-.titlepage span {
-     color: #0e0f10;
+.amazing .amazing-box h2  span {
+     color: #000000;
      font-size: 17px;
      line-height: 32px;
      display: inline-block;

@@ -5,10 +5,11 @@
 <html lang="en">
    <head>
    <style>
-body {
+body {"{% static 'images/1.png' %}"
     animation: bounce; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 2s;
     font-family: "Microsoft YaHei UI", Segoe, Arial, sans-serif;
+    background-color: #f5f5f5;
 }
     .imgBox
     {
@@ -25,6 +26,155 @@ body {
   transition: transform .2s; /* Animation */
 
 }
+
+
+
+.testimonial{
+    margin: 0 15px;
+    overflow: hidden;
+}
+.demo
+{
+	padding: 100px 0;
+}
+.heading-title
+{
+	margin-bottom: 100px;
+        color: #fff;
+}
+.testimonial .description{
+    position: relative;
+    font-size: 13px;
+    line-height: 26px;
+    color: #fff;
+    padding: 30px 20px;
+    border: 1px solid #767070;
+    border-left: 3px solid #ffc33c;
+}
+
+.testimonial .description:after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: #3d3d3d;
+    border-bottom: 1px solid #767070;
+    border-left: 1px solid #767070;
+    position: absolute;
+    bottom: -11px;
+    left: 65px;
+    transform: skewY(-45deg);
+}
+
+.testimonial .pic{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px 30px 10px;
+    display: inline-block;
+    border: 3px solid  #ffc33c;
+}
+
+.testimonial .pic img{
+    width: 100%;
+    height: auto;
+}
+
+.testimonial .testimonial-prof{
+    text-transform: capitalize;
+    margin: 0 30px;
+}
+
+.testimonial .testimonial-prof h4{
+    color: #ffc33c;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.testimonial .testimonial-prof small{
+    display: block;
+    font-size: 14px;
+    color: #fff;
+}
+
+.owl-theme .owl-controls{
+    margin-top:45px;
+}
+
+.owl-theme .owl-controls .owl-buttons div{
+    border-radius: 0;
+    background: #ffc33c;
+    padding: 15px 20px;
+    opacity: 1;
+    border: 1px solid transparent;
+    transition: all 0.30s linear 0s;
+}
+
+.owl-theme .owl-controls .owl-buttons div:hover{
+    background: transparent;
+    border: 1px solid #ffc33c;
+}
+
+.owl-prev:before,
+.owl-next:before{
+    content: "\f053";
+    font-family: 'FontAwesome';
+    color: #fff;
+}
+
+.owl-next:before{
+    content: "\f054";
+}
+
+@media only screen and (max-width: 480px){
+    .owl-theme .owl-controls{
+        margin-top: 25px;
+    }
+}
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+
+
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.carousel {
+}
+
+.carousel-cell {
+  width: 66%;
+
+  height: 300px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
 
 .zoom:hover {
   transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
@@ -51,6 +201,9 @@ body {
        <link href="{% static 'css/owl.theme.default.min.css' %}" rel="stylesheet">
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <!-- CSS -->
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 
 
 
@@ -74,9 +227,8 @@ body {
                      <div class="col-md-12">
                         <div class="header_information">
                            <ul>
-                              <li class="box"><img src="{% static 'images/1.png' %}" alt="#"/>  mi road  jaipur tower</li>
-                              <li><img  alt="#" src="{% static 'images/2.png' %}"> +918432262176</li>
-                              <li><img src="{% static 'images/3.png' %}" alt="#"/>jhapluech007@gmail.com</li>
+                              <li class="box"><img src="{% static 'images/1.png' %}" alt="#"/>{{ data.email }}</li>
+                              <li><img src="{% static 'images/3.png' %}" alt="#"/>{{ data.phone_no }}</li>
                            </ul>
                         </div>
                      </div>
@@ -151,13 +303,14 @@ body {
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="img-responsive" style="height: 500px" width="100%" src="{% static 'images/123.jpg' %}" alt="First slide">
+      <img class="img-responsive" style="height: 500px" width="100%" src="{{ MEDIA_URL }}{{ data.image_1 }}" alt="First slide">
+    </div>
+
+    <div class="carousel-item">
+      <img class="img-responsive" style="height: 500px" width="100%" src="{{ MEDIA_URL }}{{ data.image_2 }}" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="img-responsive" style="height: 500px" width="100%" src="{% static 'images/1234.jpg' %}" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="img-responsive" style="height: 500px" width="100%" src="{% static 'images/123.jpg' %}" alt="Third slide">
+      <img class="img-responsive" style="height: 500px" width="100%" src="{{ MEDIA_URL }}{{ data.image_3 }}" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -246,8 +399,6 @@ body {
 
 
 
-      <div id="service" class="traveling ">
-         <div class="container animate__animated animate__backInRight animate__delay-2s">
 
 
 
@@ -258,6 +409,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="service" class="traveling " >
+
+         <div class="container-fluid animate__animated animate__backInRight animate__delay-2s">
 
 
 
@@ -266,7 +433,7 @@ body {
             <div class="row" >
                <div class="col-md-12 ">
                   <div class="titlepage">
-                     <h2  style="color: #000000" >Services Provides By Us</h2>
+                     <h2  style="color: #000000" class="pt-5">Services Provides By Us</h2>
                      <span  style="color: darkcyan" >It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
                   </div>
                </div>
@@ -317,16 +484,147 @@ body {
 
          </div>
 
-
-
-
-
       </div>
 
 
 
 
 
+<h2 class="text-center" style="font-size: 45px; font-weight: bold;
+">Technologies We Used</h2>
+
+<div class="carousel container"  data-flickity='{ "autoPlay": true,"wrapAround":true }' >
+  <div class="carousel-cell">
+       <div class="row ">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box ">
+                     <i><img  src="{% static 'images/django-framework.jpg' %}" class="img-thumbnali pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Django </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/react.jpg' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">React </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img  src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Angular </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Flutter </h3>
+
+                  </div>
+               </div>
+            </div>
+  </div>
+  <div class="carousel-cell">
+ <div class="row ">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box ">
+                     <i><img  src="{% static 'images/django-framework.jpg' %}" class="img-thumbnali pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Django </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/react.jpg' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">React </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img  src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Angular </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Flutter </h3>
+
+                  </div>
+               </div>
+            </div>
+  </div>
+  <div class="carousel-cell">
+ <div class="row ">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box ">
+                     <i><img  src="{% static 'images/django-framework.jpg' %}" class="img-thumbnali pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Django </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/react.jpg' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">React </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img  src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Angular </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Flutter </h3>
+
+                  </div>
+               </div>
+            </div>
+  </div>
+  <div class="carousel-cell">
+ <div class="row ">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box ">
+                     <i><img  src="{% static 'images/django-framework.jpg' %}" class="img-thumbnali pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Django </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/react.jpg' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">React </h3>
+                     <div class="read-more">
+                         <a href="{% url 'Main_app:service' id=2 %}">Read More</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img  src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Angular </h3>
+
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{% static 'images/angular.png' %}" class="pt-3" alt="icon"/></i>
+                     <h3  style="color: #000000">Flutter </h3>
+
+                  </div>
+               </div>
+            </div>
+  </div>
+</div>
 
 
 
@@ -416,13 +714,13 @@ body {
           -->
 
 
-      <div class="amazing">
+      <div class="amazing pt-5" >
          <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="amazing-box">
                      <h2>Projects and Products</h2>
-                     <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</span>
+                     <span class="pt-5">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</span>
                       <div class="read-more">
                                               <a href="{% url 'Main_app:products'%}">products</a>
                       <a href="{% url 'Main_app:projects' %}">projects</a>
@@ -480,10 +778,10 @@ body {
 
 
 
-<!--
 
 
-      <div style="background-color: lightblue">
+
+      <div  style="padding-bottom: 5%;padding-top: 8%">
            <div class="titlepage" >
                      <h2>Why Us</h2>
                      <span>Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
@@ -523,11 +821,127 @@ body {
          </div>
 
       </div>
-      -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="demo" style="background: #3d3d3d;">
+        <div class="container">
+            <div class="row text-center">
+                <h1 class="heading-title"> Testimonial Slider Style </h1>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="testimonial-slider" class="owl-carousel">
+                        <div class="testimonial">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nulla dictum felis sollicitudin, euismod finibus augue vulputate. Sed aliquam, elit eu gravida dignissim, justo dolor vulputate ipsum, a dapibus purus dui vitae purus..
+                            </p>
+                            <div class="pic">
+                                <img src="images/Affluent-Women-Mailing-Lists.jpg" alt=""/>
+                            </div>
+                            <div class="testimonial-prof">
+                                <h4>williamson</h4>
+                                <small>Web Developer</small>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nulla dictum felis sollicitudin, euismod finibus augue vulputate. Sed aliquam, elit eu gravida dignissim.
+                            </p>
+                            <div class="pic">
+                                <img src="images/person-2.jpg" alt=""/>
+                            </div>
+                            <div class="testimonial-prof">
+                                <h4>kristiana</h4>
+                                <small>Web Designer</small>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nulla dictum felis sollicitudin, euismod finibus augue vulputate. Sed aliquam, elit eu gravida dignissim, justo dolor vulputate ipsum, a dapibus purus dui vitae purus..
+                            </p>
+                            <div class="pic">
+                                <img src="images/Sam-Revilter.jpg" alt=""/>
+                            </div>
+                            <div class="testimonial-prof">
+                                <h4>Steve Thomas</h4>
+                                <small>Web Designer</small>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <p class="description">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo nulla dictum felis sollicitudin, euismod finibus augue vulputate. Sed aliquam, elit eu gravida dignissim.
+                            </p>
+                            <div class="pic">
+                                <img src="images/team4-large.jpg" alt=""/>
+                            </div>
+                            <div class="testimonial-prof">
+                                <h4>miranda joy</h4>
+                                <small>Web Developer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {% endblock %}
 
       <footer>
-         <div id="contact" class="footer">
+         <div id="contact" class="footer" style="background: #3d3d3d;">
             <div class="container">
                <div class="row pdn-top-30">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -596,6 +1010,8 @@ body {
       <!-- sidebar -->
       <script  src= "{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}" ></script>
       <script  src= "{% static 'js/custom.js' %}" ></script>
+      <!-- JavaScript -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
       <!-- javascript -->
       <script  src= "{% static 'js/owl.carousel.js' %}" ></script>
       <script>
@@ -639,6 +1055,27 @@ count=0;
 as();
 }
 }
+
+          $('.main-carousel').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true
+});
+
+
+
+          var elem = document.querySelector('.main-carousel');
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+  contain: true
+});
+
+// element argument can be a selector string
+//   for an individual element
+var flkty = new Flickity( '.main-carousel', {
+  // options
+});
       </script>
 
    </body>

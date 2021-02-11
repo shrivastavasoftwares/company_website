@@ -30,7 +30,7 @@
         					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%" src="{% static 'images/django-framework.jpg' %}" alt="image">
 <h1>{{ i.Title }}</h1>
 
-          <p>{{ i.description }}</p>
+          <p>{{ i.content|safe }}</p>
 
       </div>
       <div class="modal-footer">
@@ -83,10 +83,10 @@
                 {% for i  in data %}
 			    <div class="item mb-5">
 				    <div class="media">
-					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%" src="{% static 'images/django-framework.jpg' %}" alt="image">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" style="width: 30%; height: 40%" src="{{ MEDIA_URL }}{{ i.img }}" alt="image">
 
-					    <div class="media-body">
-						    <h3 class="title "><a href="blog-post.html">{{ i.Title }}</a></h3>
+					    <div class="">
+						    <h3 class="title ">{{ i.Title }}</h3>
 						    <div class="intro">{{ i.description }}</div>
                             <button type="button" id ="1"class="btn btn-primary" style="margin-top: 3%" data-toggle="modal" data-target="#{{ i.id }}">
   Read more
