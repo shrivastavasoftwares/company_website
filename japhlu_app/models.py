@@ -53,6 +53,7 @@ class services(models.Model):
     content = RichTextField(null=True,blank=True)
 
     img=models.ImageField(upload_to='media/img',blank=True,default="blank-headshot.jpg")
+    #hi=models.CharField(max_length=100,null=True,blank=True)
 
 
 
