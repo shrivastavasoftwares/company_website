@@ -2042,7 +2042,6 @@ input[type="radio"] .styled:checked+label::after {
      font-size: 45px;
      font-weight: bold;
      color: #0e0f10;
-     line-height: 50px;
      text-transform: uppercase;
      display: inline-block;
      position: relative;
